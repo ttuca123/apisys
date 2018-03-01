@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.apisys.teste.domain.Aluno;
-import com.apisys.teste.domain.Curso;
 import com.apisys.teste.service.AlunoService;
-import com.apisys.teste.service.CursoService;
 
 /**
  * 

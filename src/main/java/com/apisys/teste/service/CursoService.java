@@ -24,7 +24,7 @@ public class CursoService {
 		return repo.findOne(id);
 	}
 	
-	public void save (Curso curso){
+	public void salvar (Curso curso){
 		
 		repo.save(curso);	
 		

@@ -5,13 +5,72 @@
 <meta charset="UTF-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Lista de Cursos</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous" />
+<title>Lista de Alunos</title>
+<!-- JQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	
+	<!-- Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	
+	<!-- JQuery UI -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+	<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script th:src="@{/js/curso_modal.js}" type="text/javascript" ></script>
 </head>
 <body>
-	<h1>Cursos!</h1>
+	<div align="center">
+		<h2 style="padding-left: 8px">Cursos</h2>
+
+	</div>
+
+	<div class="container">
+		<div class="btn-toolbar mb-3" role="toolbar"
+			aria-label="Toolbar with button groups">
+			<div class="btn-group mr-2" role="group" aria-label="First group">
+				<a type="button" class="btn btn-secondary" href="/">Voltar</a>
+				<a type="button"  class="btn btn-secondary"
+				 th:onclick="'javascript:openAddCursoModal();'"> Novo *</a>
+			</div>
+		</div>
+
+	</div>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Código</th>
+				<th scope="col">Nome</th>				
+				<th scope="col">Instituição de Ensino</th>				
+				<th scope="col">Editar</th>
+				<th scope="col">Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="curso : ${cursoList}">
+				<td class="col-lg-2 center" th:text="${curso.codigo}"></td>
+				<td class="col-lg-2 center" th:text="${curso.nome}"></td>
+				<td class="col-lg-2 center" th:text="${curso.instituicao}"></td>				
+				<td><a href="#" th:onclick="'javascript:openEditModal(\''+ ${curso.id} + '\');'">
+					<img th:src="@{/img/edit.png}" alt="Editar" /> </a> 
+				</td>
+				<td>
+					<a href="#" th:onclick="'javascript:openRemoveModal(\''+ ${curso.id} + '\');'">
+					 <img th:src="@{/img/remove.png}"
+						alt="Remover" />
+					</a>
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+	
+	<!-- Referências para os Modais -->
+	<div th:fragment="add-curso" id="addCursoModalHolder"></div>
+	
+	<div th:fragment="edit-curso" id="editCursoModalHolder"></div>
+	
+	<div th:fragment="remove-curso" id="removeCursoModalHolder"></div>
+	
 </body>
 </html>

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<div id="addCursoModal" class="modal fade" role="dialog"
+	th:fragment="add-curso" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<h4 class="modal-title">
+					<span style="font-weight: bold; color: #FFF">Novo Curso</span>
+				</h4>
+			</div>
+			<form th:action="@{/cursos}" id="add-curso-form" method="post" action="#"
+				style="margin: 20px 0" th:object="${curso}" >
+
+				<div class="modal-body">					
+					
+					<div class="form-group">
+						<label>Nome</label> 
+						<input type="text" name="nome" th:field="${curso.nome}"
+							class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Código do Curso</label>
+						 <input required="required" name="codigo" pattern="[0-9]+$"
+						 	
+							th:field="${curso.codigo}" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Instituição</label> <input name="instituicao"
+							id="instituicao" th:field="${curso.instituicao}"
+							class="form-control clsDatePicker" />
+					</div>			  
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</html>

@@ -13,31 +13,26 @@ public class AlunoService {
 
 	@Autowired
 	AlunoRepository repo;
-	
-	public List<Aluno> getAll(){
-		
+
+	public List<Aluno> getAll() {
+
 		return repo.findAll();
 	}
-	
-	public Aluno findById(Long id){
-		
+
+	public Aluno findById(Long id) {
+
 		return repo.findOne(id);
 	}
-	
-	public void salvar (Aluno aluno){
-		
-		
-			repo.save(aluno);	
-		
-		
-		
+
+	public void salvar(Aluno aluno) {
+
+		repo.save(aluno);
+
 	}
-	
-	
-	
-	public void excluir (Aluno aluno){
-		
-		repo.delete(aluno);	
-		
+
+	public void excluir(Aluno aluno) {
+
+		repo.delete(aluno);
+
 	}
 }
