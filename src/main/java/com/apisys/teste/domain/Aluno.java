@@ -23,121 +23,98 @@ import com.apisys.teste.enu.EnuSituacaoMatricula;
  */
 
 @Entity
-@Table(name="alunos")
+@Table(name = "alunos")
 public class Aluno implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
-	@Id	
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id",  columnDefinition = "serial not null")
+	@Column(name = "id", columnDefinition = "serial not null")
 	private Long id;
-	
-	@Column(name="nome", nullable= false)
-	private String nome;	
-	
-	@Column(name="matricula", unique=true)
+
+	@Column(name = "nome", nullable = false)
+	private String nome;
+
+	@Column(name = "matricula", unique = true)
 	private int matricula;
-	
-	@Column(name="semestre")
-	private int semestre;	
-	
-	@Column(name="situacao_matricula")
+
+	@Column(name = "semestre")
+	private int semestre;
+
+	@Column(name = "situacao_matricula")
 	private int situacaoMatricula;
-	
-	
+
 	@OneToOne
-	@JoinColumn(name="curso_aluno")
+	@JoinColumn(name = "curso_aluno")
 	private Curso curso;
-	
+
 	@Transient
-	private  String descSituacaoMatricula;
-
-
-	
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-	
-
-
-	public int getSemestre() {
-		return semestre;
-	}
-
-
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
-	}
-
-
-	
-
-	public Curso getCurso() {
-		if(curso ==null) {
-			
-			curso = new Curso();
-		}
-		
-		return curso;
-	}
-
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-	
-	public String getDescSituacaoMatricula() {
-		
-		descSituacaoMatricula = EnuSituacaoMatricula.getDescricao(situacaoMatricula);
-		
-		return descSituacaoMatricula;
-	}
-
-	
-	public int getSituacaoMatricula() {
-		return situacaoMatricula;
-	}
-
-
-	public void setSituacaoMatricula(int situacaoMatricula) {
-		this.situacaoMatricula = situacaoMatricula;
-	}
-
+	private String descSituacaoMatricula;
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}
+
+	public Curso getCurso() {
+		if (curso == null) {
+
+			curso = new Curso();
+		}
+
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public String getDescSituacaoMatricula() {
+
+		descSituacaoMatricula = EnuSituacaoMatricula.getDescricao(situacaoMatricula);
+
+		return descSituacaoMatricula;
+	}
+
+	public int getSituacaoMatricula() {
+		return situacaoMatricula;
+	}
+
+	public void setSituacaoMatricula(int situacaoMatricula) {
+		this.situacaoMatricula = situacaoMatricula;
+	}
 
 	public int getMatricula() {
 		return matricula;
 	}
 
-
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
 
-
 	public void setDescSituacaoMatricula(String descSituacaoMatricula) {
 		this.descSituacaoMatricula = descSituacaoMatricula;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -146,7 +123,6 @@ public class Aluno implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -165,25 +141,4 @@ public class Aluno implements Serializable {
 		return true;
 	}
 
-
-	
-
-	
-
-
-	
-
-
-	
-
-
-	
-
-
-
-	
-	
-	
-	
-	
 }
