@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<div id="editAlunoModal" class="modal fade" role="dialog"
+	th:fragment="edit-aluno" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<h4 class="modal-title">
+					<span style="font-weight: bold">Editar Aluno</span>
+				</h4>
+			</div>
+			<form th:action="@{/alunos}" method="post" id="edit-aluno-form">
+
+				<div class="modal-body">
+					<input type="hidden" th:field="${aluno.id}" />
+					<!--<span style="font-weight:bold">Id: </span><span th:text="${student.id}"></span><br>-->
+					<div class="form-group">
+						<label>Nome</label> <input type="text" th:field="${aluno.nome}"
+							class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Matrícula</label> <input type="text"
+							th:field="${aluno.matricula}" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Semestre</label> <input type="number"
+							id="datepicker_edit-student" th:field="${aluno.semestre}"
+							class="form-control clsDatePicker" />
+					</div>
+					<!--  <div class="form-group">
+						<label >Student Type</label>
+						<select th:field="${student.studentType}" class="form-control">
+						   <option th:each="studentType : ${T(com.example.thymeleafpoc.enums.StudentType).values()}"
+						          th:value="${studentType}" 
+						          th:text="${studentType.name}">
+						   </option>
+						</select>						
+					</div>
+					-->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</html>
