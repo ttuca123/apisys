@@ -9,6 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/**
+ * 
+ * @author Artur
+ * 
+ * @since 2018
+ * @version 1.0
+ */
 @Entity
 @Table(name="cursos")
 public class Curso implements Serializable{	

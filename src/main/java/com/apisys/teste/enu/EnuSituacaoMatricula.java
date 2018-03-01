@@ -1,6 +1,12 @@
 package com.apisys.teste.enu;
 
-
+/**
+ * 
+ * @author Artur
+ * 
+ * @since 2018
+ * @version 1.0
+ */
 
 public enum EnuSituacaoMatricula {
 

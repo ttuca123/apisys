@@ -8,6 +8,16 @@ import org.springframework.stereotype.Service;
 import com.apisys.teste.domain.Aluno;
 import com.apisys.teste.repository.AlunoRepository;
 
+/**
+ * 
+ * @author Artur
+ * 
+ * @since 2018
+ * @version 1.0
+ * 
+ * Classe responsável pelo negócio relacionado ao Aluno
+ */
+
 @Service
 public class AlunoService {
 

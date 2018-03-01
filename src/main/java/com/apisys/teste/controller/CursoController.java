@@ -14,6 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.apisys.teste.domain.Curso;
 import com.apisys.teste.service.CursoService;
 
+/**
+ * 
+ * @author Artur
+ * 
+ * @since 2018
+ * @version 1.0
+ */
+
 @Controller
 public class CursoController {
 	

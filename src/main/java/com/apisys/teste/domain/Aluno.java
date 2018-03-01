@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,8 +17,9 @@ import com.apisys.teste.enu.EnuSituacaoMatricula;
 /**
  * 
  * @author Artur
+ * 
  * @since 2018
- *
+ * @version 1.0
  */
 
 @Entity
