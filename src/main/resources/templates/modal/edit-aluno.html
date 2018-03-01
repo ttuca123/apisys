@@ -14,32 +14,44 @@
 			</div>
 			<form th:action="@{/alunos}" method="post" id="edit-aluno-form">
 
-				<div class="modal-body">
+				<div class="modal-body">					
 					<input type="hidden" th:field="${aluno.id}" />
-					<!--<span style="font-weight:bold">Id: </span><span th:text="${student.id}"></span><br>-->
 					<div class="form-group">
-						<label>Nome</label> <input type="text" th:field="${aluno.nome}"
+						<label>Nome</label> 
+						<input type="text" name="nome" th:field="${aluno.nome}"
 							class="form-control" />
 					</div>
 					<div class="form-group">
-						<label>Matrícula</label> <input type="text"
+						<label>Matrícula</label>
+						 <input required="required" name="matricula" pattern="[0-9]+$"
+						 	
 							th:field="${aluno.matricula}" class="form-control" />
 					</div>
 					<div class="form-group">
-						<label>Semestre</label> <input type="number"
+						<label>Semestre</label> <input name="semestre" pattern="[0-9]+$"
 							id="datepicker_edit-student" th:field="${aluno.semestre}"
 							class="form-control clsDatePicker" />
 					</div>
-					<!--  <div class="form-group">
-						<label >Student Type</label>
-						<select th:field="${student.studentType}" class="form-control">
-						   <option th:each="studentType : ${T(com.example.thymeleafpoc.enums.StudentType).values()}"
-						          th:value="${studentType}" 
-						          th:text="${studentType.name}">
+					  <div class="form-group">
+						<label >Situação Matrícula</label>
+						<select th:field="${aluno.situacaoMatricula}" class="form-control" required="required">
+						   <option th:each="tipoSituacao : ${T(com.apisys.teste.enu.EnuSituacaoMatricula).values()}"
+						          th:value="${tipoSituacao.codigo}" 
+						          th:text="${tipoSituacao.descricao}">
 						   </option>
 						</select>						
 					</div>
-					-->
+					
+					<div class="form-group">
+						<label >Curso </label>
+						<select th:field="${aluno.curso}" class="form-control" required="required">
+						   <option th:each="curso : ${cursoList}"
+						          th:value="${curso.id}" 
+						          th:text="${curso.nome}">
+						   </option>
+						</select>						
+					</div>
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

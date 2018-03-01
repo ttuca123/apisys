@@ -19,16 +19,21 @@ public class AlunoService {
 		return repo.findAll();
 	}
 	
-	public Aluno findById(int id){
+	public Aluno findById(Long id){
 		
 		return repo.findOne(id);
 	}
 	
-	public void save (Aluno aluno){
+	public void salvar (Aluno aluno){
 		
-		repo.save(aluno);	
+		
+			repo.save(aluno);	
+		
+		
 		
 	}
+	
+	
 	
 	public void excluir (Aluno aluno){
 		
