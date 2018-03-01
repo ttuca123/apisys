@@ -31,9 +31,9 @@ public class AlunoController {
 
 		List<Aluno> lstAlunos = alunoService.getAll();
 		
-		model.addAttribute("aluno", new Aluno());
+		//model.addAttribute("aluno", new Aluno());
 		
-		model.addAttribute("curso", new Curso());	
+		//model.addAttribute("curso", new Curso());	
 		
 
 		ModelAndView mv = new ModelAndView("alunos");
@@ -41,23 +41,23 @@ public class AlunoController {
 		mv.addObject("alunoList",lstAlunos);		
 		
 		return mv;
-	}	
-	
-	@GetMapping("/alunos/{id}")
-	public String find(@PathVariable int id, ModelMap model) {
-			
-		Aluno aluno = alunoService.findById(id);
-		
-		model.addAttribute("aluno", aluno);
-		
-		return "modal/editarModal :: modalContents";
 	}
 	
 	@RequestMapping(value="/alunos", method=RequestMethod.POST)
-	public String find(@ModelAttribute Aluno aluno) {
+	public String salvar(@ModelAttribute Aluno aluno) {
 			
 		alunoService.save(aluno);		
 		
+		return "redirect:/alunos";
+	}
+	
+	@RequestMapping(value="/alunos/{id}", method=RequestMethod.POST)
+	public String remover(@PathVariable int id) {
+			
+		Aluno aluno = alunoService.findById(id);
+		
+		alunoService.excluir(aluno);
+				
 		return "redirect:/alunos";
 	}
 	

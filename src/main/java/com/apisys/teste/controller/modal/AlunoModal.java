@@ -17,12 +17,30 @@ public class AlunoModal {
 	AlunoService alunoService;
 	
 	@GetMapping(value="/edit-aluno/{id}")
-	public String getAlunoModal(@PathVariable("id") int id, ModelMap model) {
+	public String editarAlunoModal(@PathVariable("id") int id, ModelMap model) {
 		
 		Aluno aluno = alunoService.findById(id);
 		
 		model.addAttribute("aluno", aluno);
 		
 		return "modal/edit-aluno :: edit-aluno";
+	}
+	
+	@GetMapping(value="/add-aluno")
+	public String adicionarAlunoModal(ModelMap model) {				
+		
+		model.addAttribute("aluno", new Aluno());
+		
+		return "modal/add-aluno :: add-aluno";
+	}
+	
+	@GetMapping(value="/remove-aluno/{id}")
+	public String removerAlunoModal(@PathVariable("id") int id, ModelMap model) {				
+		
+		Aluno aluno = alunoService.findById(id);
+		
+		model.addAttribute("aluno", aluno);
+		
+		return "modal/remove-aluno :: remove-aluno";
 	}
 }

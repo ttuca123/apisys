@@ -3,16 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 
-<div id="editAlunoModal" class="modal fade" role="dialog"
-	th:fragment="edit-aluno" tabindex="-1">
+<div id="addAlunoModal" class="modal fade" role="dialog"
+	th:fragment="add-aluno" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header bg-primary">
 				<h4 class="modal-title">
-					<span style="font-weight: bold; color: #FFF">Editar Aluno</span>
+					<span style="font-weight: bold; color: #FFF">Novo Aluno</span>
 				</h4>
 			</div>
-			<form th:action="@{/alunos}" method="post" id="edit-aluno-form">
+			<form th:action="@{/alunos}" id="add-aluno-form" method="post" action="#"
+				style="margin: 20px 0" th:object="${aluno}" >
 
 				<div class="modal-body">
 					<input type="hidden" th:field="${aluno.id}" />

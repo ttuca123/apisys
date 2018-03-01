@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<div id="removeAlunoModal" class="modal fade" role="dialog"
+	th:fragment="remove-aluno" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<h4 class="modal-title ">
+					<span style="font-weight: bold; color: #FFF">
+						Excluir Aluno 
+					</span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<p>
+					Você tem certeza que deseja excluir o aluno <span style="font-weight: bold"
+						th:text="| ${aluno.nome} |"></span>?
+				</p>
+			</div>
+			<div class="modal-footer">
+				<form th:action="@{/alunos/{id}(id=${aluno.id})}"
+					method="post">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-danger">Excluir</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+</html>
