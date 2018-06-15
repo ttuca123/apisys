@@ -8,4 +8,6 @@ import com.apisys.teste.domain.Aluno;
 @Repository
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
 
+	
+	
 }

@@ -1,6 +1,7 @@
 package com.apisys.teste.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,7 +56,7 @@ public class AlunoController {
 	@RequestMapping(value="/alunos/{id}", method=RequestMethod.POST)
 	public String remover(@PathVariable Integer id) {
 			
-		Aluno aluno = alunoService.findById(id.longValue());
+		Optional<Aluno> aluno = alunoService.findById(id.longValue());
 		
 		alunoService.excluir(aluno);
 				

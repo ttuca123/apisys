@@ -1,6 +1,7 @@
 package com.apisys.teste.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,9 +54,9 @@ public class CursoController {
 	@RequestMapping(value="/cursos/{id}", method=RequestMethod.POST)
 	public String remover(@PathVariable Integer id) {
 			
-		Curso curso = cursoService.findById(id.longValue());
+		Optional<Curso> curso = cursoService.findById(id.longValue());
 		
-		cursoService.excluir(curso);
+		cursoService.excluir(curso.get());
 				
 		return "redirect:/cursos";
 	}

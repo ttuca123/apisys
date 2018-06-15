@@ -1,6 +1,7 @@
 package com.apisys.teste.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,9 +30,9 @@ public class AlunoService {
 		return repo.findAll();
 	}
 
-	public Aluno findById(Long id) {
+	public Optional<Aluno> findById(Long id) {
 
-		return repo.findOne(id);
+		return repo.findById(id);
 	}
 
 	public void salvar(Aluno aluno) {
@@ -40,9 +41,9 @@ public class AlunoService {
 
 	}
 
-	public void excluir(Aluno aluno) {
+	public void excluir(Optional<Aluno> aluno) {
 
-		repo.delete(aluno);
+		repo.delete(aluno.get());
 
 	}
 }

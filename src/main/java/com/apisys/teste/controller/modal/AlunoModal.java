@@ -2,6 +2,7 @@ package com.apisys.teste.controller.modal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class AlunoModal {
 	@GetMapping(value = "/edit-aluno/{id}")
 	public String editarAlunoModal(@PathVariable("id") Integer id, Model model) {
 
-		Aluno aluno = alunoService.findById(id.longValue());
+		Optional<Aluno> aluno = alunoService.findById(id.longValue());
 
 		model.addAttribute("aluno", aluno);	
 		
@@ -65,7 +66,7 @@ public class AlunoModal {
 	@GetMapping(value = "/remove-aluno/{id}")
 	public String removerAlunoModal(@PathVariable("id") Integer id, ModelMap model) {
 
-		Aluno aluno = alunoService.findById(id.longValue());
+		Optional<Aluno> aluno = alunoService.findById(id.longValue());
 
 		model.addAttribute("aluno", aluno);
 
